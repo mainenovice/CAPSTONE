@@ -11,7 +11,7 @@ class Home(UserControl):
           return Column(
             controls=[
               Container(
-                  bgcolor='blue',
+                  bgcolor=colors.INDIGO_300,
                   content=Column(
                     controls=[
                         Row(controls=[self.add_btn, self.cultures_btn, self.notes_btn],alignment=MainAxisAlignment.CENTER),
@@ -22,4 +22,3 @@ class Home(UserControl):
 
             ]
           )
-

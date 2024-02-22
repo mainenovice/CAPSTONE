@@ -1,5 +1,9 @@
 from flet import *
 from pages.home import Home
+from pages.add import Add
+from pages.cultures import Cultures
+from pages.notes import Notes
+
 def views_handler(page):
     return {
         '/':View(
@@ -9,27 +13,21 @@ def views_handler(page):
                 ]
         ),
         '/cultures': View(
-            route='/login',
+            route='/cultures',
             controls=[
-                Container(
-                    bgcolor='blue'
-                )
+                Cultures(page)
             ]
         ),
         '/add': View(
             route='/add',
             controls=[
-                Container(
-                    bgcolor='red'
-                )
+                Add(page)
             ]
         ),
-        '/cultures': View(
-            route='/cultures',
+        '/notes': View(
+            route='/notes',
             controls=[
-                Container(
-                    bgcolor='green'
-                )
+                Notes(page)
             ]
         ),
     }
