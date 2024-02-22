@@ -1,27 +1,16 @@
-import tkinter as tk
+import flet as ft
+from views import views_handler
+def main(page: ft.Page):
 
-#this is the main app/frame
-root=tk.Tk()
+    def route_change(route):
+        print(page.route)
+        page.views.clear()
+        page.views.append(
+            views_handler(page)[page.route]
+        )
 
-#define the menu elements
-menu_label=tk.Label(text='Mushroom Farm Tracker')
-menu_add=tk.Button(text='Add/Update Cultures')
-menu_about=tk.Button(text='About Data')
-menu_notes=tk.Button(text='Take New Notes')
-
-# label=tk.Label(text='Name')
-# entry= tk.Entry()
-
-#pack the menu elements
-menu_label.pack()
-menu_add.pack()
-menu_about.pack()
-menu_notes.pack()
+    page.on_route_change = route_change
+    page.go('/')
 
 
-# label.pack()
-# entry.pack()
-
-
-
-root.mainloop()
+ft.app(target=main, view=ft.WEB_BROWSER)
