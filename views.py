@@ -1,7 +1,7 @@
 from flet import *
 from pages.home import Home
+from pages.culture import Culture
 from pages.inventory import Inventory
-from pages.preparation import Preparation
 from pages.inoculation import Inoculation
 from pages.harvest import Harvest
 from pages.dataview import Dataview
@@ -20,10 +20,10 @@ def views_handler(page):
                 Inventory(page)
             ]
         ),
-        '/preparation': View(
-            route='/preparation',
+        '/culture': View(
+            route='/culture',
             controls=[
-                Preparation(page)
+                Culture(page)
             ]
         ),
         '/inoculation': View(
