@@ -1,8 +1,8 @@
 from flet import *
 from pages.home import Home
-from pages.culture import Culture
+from pages.spore import Spore
 from pages.inventory import Inventory
-from pages.inoculation import Inoculation
+from pages.agar import Agar
 from pages.harvest import Harvest
 from pages.dataview import Dataview
 
@@ -20,16 +20,16 @@ def views_handler(page):
                 Inventory(page)
             ]
         ),
-        '/culture': View(
-            route='/culture',
+        '/spore': View(
+            route='/spore',
             controls=[
-                Culture(page)
+                Spore(page)
             ]
         ),
-        '/inoculation': View(
-            route='/inoculation',
+        '/agar': View(
+            route='/agar',
             controls=[
-                Inoculation(page)
+                Agar(page)
             ]
         ),
         '/harvest': View(
