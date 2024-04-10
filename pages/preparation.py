@@ -1,6 +1,6 @@
 from flet import *
 # from pages.nav_menu import Nav_Menu
-class Spore(UserControl):
+class Grain(UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page

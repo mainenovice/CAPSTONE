@@ -5,8 +5,8 @@ class Home(UserControl):
                 super().__init__()
                 self.page = page
                 self.inventory = ElevatedButton(text='Add/Update Inventory', on_click=lambda _: page.go('/inventory'))
-                self.spore = ElevatedButton(text="Spore", on_click=lambda _: page.go('/spore'))
-                self.agar = ElevatedButton(text='Agar', on_click=lambda _: page.go('/agar'))
+                self.spore = ElevatedButton(text="Add Spores", on_click=lambda _: page.go('/spore'))
+                self.agar = ElevatedButton(text='Pour Agar', on_click=lambda _: page.go('/agar'))
                 self.harvest = ElevatedButton(text='Harvest', on_click=lambda _: page.go('/harvest'))
                 self.dataview = ElevatedButton(text='View Data', on_click=lambda _: page.go('/dataview'))
         def build(self):

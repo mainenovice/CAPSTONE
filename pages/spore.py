@@ -25,6 +25,17 @@ class Spore(UserControl):
                                 spore_website=self.spore_website.value,
                                 spore_date=date.today()
                                 ))
+        self.confirm_add()
+    def confirm_add(self):
+        #show confirmation text and clear values
+        self.spore_name.value = ''
+        self.spore_name.update()
+
+        self.spore_website.value = ''
+        self.spore_website.update()
+
+        self.spore_vendor.value = ''
+        self.spore_vendor.update()
     def build(self):
           return Column(
             controls=[
@@ -36,7 +47,7 @@ class Spore(UserControl):
                         Row(controls=[self.inventory, self.spore, self.agar, self.harvest, self.dataview],
                             alignment=MainAxisAlignment.CENTER),
               Container(
-                  padding=padding.all(300),
+                  padding=padding.all(130),
                   content=Column(controls=[self.spore_name,self.spore_website,self.spore_date,self.spore_vendor,self.spore_submit])
               )
                   ]
