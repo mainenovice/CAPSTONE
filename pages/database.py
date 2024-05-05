@@ -70,7 +70,7 @@ class Recipes(Base):
 
 class Spores(Base):
     __tablename__ = 'spores'
-    spore_id = SAColumn(Integer, primary_key=True)
+    spore_batch = SAColumn(Integer, primary_key=True)
     spore_name = SAColumn(String)
     spore_vendor= SAColumn(String)
     spore_website = SAColumn(String)
@@ -83,20 +83,30 @@ class AgarTable(Base):
     aga_name = SAColumn(String,ForeignKey('spores.spore_name'))
     aga_notes = SAColumn(String)
     aga_date = SAColumn(Date)
+class LiquidTable(Base):
+    __tablename__ = 'liquidtable'
+    liqui_batch = SAColumn(String, primary_key=True)
+    liqui_recipe = SAColumn(String, ForeignKey('agartable.aga_batch'))
+    liqui_name = SAColumn(String, ForeignKey('agartable.aga_name'))
+    liqui_notes = SAColumn(String)
+    liqui_date = SAColumn(Date)
 
 #one table for grain and bulk spawn.
-class Grain(Base):
-    __tablename__ = 'grain'
+class GrainTable(Base):
+    __tablename__ = 'graintable'
     gra_batchid = SAColumn(String, primary_key=True)
     gra_name = SAColumn(String, ForeignKey('agartable.aga_name'))
     gra_inventory_batch= SAColumn(String, ForeignKey('inventory.inv_batch'))
-    gra_parent_culture = SAColumn(String,ForeignKey('agartable.aga_batch'))
+    gra_parent_culture = SAColumn(String,ForeignKey('liquidtable.liqui_name'))
+    gra_quantity= SAColumn(Integer)
+    gra_unit= SAColumn(String)
     gra_date = SAColumn(Date)
 
 class Bulk(Base):
     __tablename__ = 'bulk'
     bulk_batch = SAColumn(String,primary_key=True)
-    bulk_name = SAColumn(String)
+    bulk_name = SAColumn(String,ForeignKey('graintable.gra_name'))
+    #bulk_
     bulk_quantity = SAColumn(Integer)
     bulk_date = SAColumn(Date)
 

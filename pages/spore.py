@@ -9,10 +9,13 @@ class Spore(UserControl):
         self.inventory = ElevatedButton(text='Add/Update Inventory', on_click=lambda _: page.go('/inventory'))
         self.spore = ElevatedButton(text="Spore", on_click=lambda _: page.go('/spore'))
         self.agar = ElevatedButton(text='Agar', on_click=lambda _: page.go('/agar'))
+        self.liquid = ElevatedButton(text='Liquid', on_click=lambda _: page.go('/liquid'))
+        self.grain = ElevatedButton(text='Grain', on_click=lambda _: page.go('/grain'))
+        self.bulk = ElevatedButton(text='Bulk', on_click=lambda _: page.go('/bulk'))
         self.harvest = ElevatedButton(text='Harvest', on_click=lambda _: page.go('/harvest'))
         self.dataview = ElevatedButton(text='View Data', on_click=lambda _: page.go('/dataview'))
         #inputs
-        #self.spore_batch=TextField(label=f'$p3-{self.spore_name.value[:2]}-',read_only=True)
+        self.spore_batch=TextField(label='$p3--0002',read_only=True)
         self.spore_name= TextField(label='Name of Species')
         self.spore_date= TextField(label=f'{date.today()}',read_only=True)
         self.spore_vendor= TextField(label='Vendor Name')
@@ -44,7 +47,8 @@ class Spore(UserControl):
                   bgcolor='#33334d',
                   content=Column(
                     controls=[
-                        Row(controls=[self.inventory, self.spore, self.agar, self.harvest, self.dataview],
+                        Row(controls=[self.inventory, self.spore,self.agar,self.liquid,self.grain,self.bulk,
+                                      self.harvest, self.dataview],
                             alignment=MainAxisAlignment.CENTER),
               Container(
                   padding=padding.all(130),
